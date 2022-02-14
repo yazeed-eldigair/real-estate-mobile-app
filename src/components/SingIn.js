@@ -28,8 +28,8 @@ const SignIn = ({ setEmail, setPassword, setRoute, handleSignIn }) => {
             secureTextEntry={true}
             onChangeText={(password) => setPassword(password)}
           />
-          <TouchableOpacity style={globalStyles.btn}>
-            <Text onPress={()=>handleSignIn()} style={globalStyles.btnText}>Login</Text>
+          <TouchableOpacity onPress={()=>handleSignIn()} style={globalStyles.btn}>
+            <Text  style={globalStyles.btnText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Text

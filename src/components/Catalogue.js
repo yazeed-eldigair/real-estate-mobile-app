@@ -1,16 +1,26 @@
 import React from "react";
-import { Text, View, FlatList, TouchableOpacity, Image } from "react-native";
+import {
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { globalStyles, images } from "../../global";
 import { bsoData } from "../../data";
 import Card from "./Card";
 
 const Catalogue = ({ setRoute }) => {
 
+
   return (
     <View style={globalStyles.homeContainer}>
       <View style={globalStyles.header}>
         <Text style={globalStyles.headerText}>Catalogue</Text>
-        <Text style={globalStyles.signOutText} onPress={() => setRoute('signIn')}>
+        <Text
+          style={globalStyles.signOutText}
+          onPress={() => setRoute("signIn")}
+        >
           Sign out
         </Text>
       </View>

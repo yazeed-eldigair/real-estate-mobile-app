@@ -32,8 +32,8 @@ const Register = ({ setEmail, setPassword, setName, setRoute, handleRegister }) 
             secureTextEntry={true}
             onChangeText={(password) => setPassword(password)}
           />
-          <TouchableOpacity style={globalStyles.btn}>
-            <Text onPress={() => handleRegister()} style={globalStyles.btnText}>Register</Text>
+          <TouchableOpacity onPress={() => handleRegister()} style={globalStyles.btn}>
+            <Text style={globalStyles.btnText}>Register</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Text

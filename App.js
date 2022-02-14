@@ -1,14 +1,8 @@
-/* TODO
--- Add alerts for input fields
--- Dismiss keyboard
--- Login page font
-*/
-
 import React, { useState, useEffect } from "react";
 import SignIn from "./src/components/SingIn";
 import Register from "./src/components/Register";
 import Catalogue from "./src/components/Catalogue";
-import { View, Text } from "react-native";
+import { View, Text, BackHandler, Alert } from "react-native";
 import { globalStyles } from "./global";
 import {
   useFonts,
@@ -23,6 +17,25 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [route, setRoute] = useState("catalogue");
   const [name, setName] = useState("");
+
+  const backAction = () => {
+    Alert.alert("Exiting App", "Are you sure you want to exit the app?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", backAction);
+
+    return () =>
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+  }, []);
 
   useEffect(() => {
     console.log("email:", email);
@@ -52,7 +65,7 @@ export default function App() {
       /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i
     );
     if (email.length == 0 || password.length == 0 || name.length == 0) {
-      alert("Required field Is missing!");
+      alert("Required field is missing!");
     } else if (!checkEmail.test(email)) {
       alert("Invalid email!");
     } else if (password.length < 4) {
@@ -81,6 +94,9 @@ export default function App() {
         .then((response) => response.json()) //check response type of API (CHECK OUTPUT OF DATA IS IN JSON)
         .then((response) => {
           setRoute("catalogue"); //Navigate to next screen if authentications are valid
+          setEmail("");
+          setPassword("");
+          setName("");
         })
         .catch((error) => {
           alert("Error Occured: " + error);
@@ -90,7 +106,7 @@ export default function App() {
 
   function handleSignIn() {
     if (email.length == 0 || password.length == 0) {
-      alert("Required field Is missing!");
+      alert("Required field is missing!");
     } else {
       var signInAPI = "http://192.168.1.101/signin/login.php";
 
@@ -112,8 +128,9 @@ export default function App() {
         .then((response) => response.json())
         .then((response) => {
           if (response[0].Message == "Success") {
-            console.log("true");
             setRoute("catalogue");
+            setEmail("");
+            setPassword("");
           } else {
             alert(response[0].Message);
           }
