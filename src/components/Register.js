@@ -40,7 +40,7 @@ const Register = ({ setEmail, setPassword, setName, setRoute, handleRegister }) 
               onPress={() => setRoute("signIn")}
               style={globalStyles.regText}
             >
-              Sign in with a registered account
+              Log in with registered account
             </Text>
           </TouchableOpacity>
         </View>

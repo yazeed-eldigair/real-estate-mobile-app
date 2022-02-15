@@ -15,7 +15,7 @@ import {
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [route, setRoute] = useState("catalogue");
+  const [route, setRoute] = useState("signIn");
   const [name, setName] = useState("");
 
   const backAction = () => {
@@ -37,22 +37,6 @@ export default function App() {
       BackHandler.removeEventListener("hardwareBackPress", backAction);
   }, []);
 
-  useEffect(() => {
-    console.log("email:", email);
-  }, [email]);
-
-  useEffect(() => {
-    console.log("password:", password);
-  }, [password]);
-
-  useEffect(() => {
-    console.log("route:", route);
-  }, [route]);
-
-  useEffect(() => {
-    console.log("name:", name);
-  }, [name]);
-
   let [fontsLoaded] = useFonts({
     Nunito_900Black,
     Nunito_700Bold,
@@ -73,7 +57,7 @@ export default function App() {
     } else if (/[ ]/.test(password)) {
       alert("Don't include space in password!");
     } else {
-      var registerAPI = "http://192.168.1.101/signin/signup.php"; //API to render signup
+      var registerAPI = "https://bso-assessment.herokuapp.com/signup.php"; //API to render signup
 
       var headers = {
         Accept: "application/json",
@@ -108,7 +92,7 @@ export default function App() {
     if (email.length == 0 || password.length == 0) {
       alert("Required field is missing!");
     } else {
-      var signInAPI = "http://192.168.1.101/signin/login.php";
+      var signInAPI = "https://bso-assessment.herokuapp.com/login.php";
 
       var headers = {
         Accept: "application/json",
