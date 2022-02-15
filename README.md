@@ -7,3 +7,4 @@ A demo mobile app that displays a catalogue of real estate properties when the u
 3. MySQL
 
 ## Demo
+![demo](https://user-images.githubusercontent.com/74137136/154040650-2a5a371a-1819-44ea-95ee-16916788b3fe.gif)
