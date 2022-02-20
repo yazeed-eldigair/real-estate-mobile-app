@@ -4,7 +4,7 @@ Backend repo: https://github.com/YazeedEld/real-estate-mobile-app-api
 
 ## Demo
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/74137136/154040650-2a5a371a-1819-44ea-95ee-16916788b3fe.gif" alt="animated" width="400"/>
+  <img src="https://user-images.githubusercontent.com/74137136/154040650-2a5a371a-1819-44ea-95ee-16916788b3fe.gif" alt="animated"/>
 </p>
 
 ## Tech Stack
