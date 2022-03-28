@@ -1,5 +1,5 @@
 # Real Estate Properties Mobile App
-A demo mobile app that showcases a catalogue of real estate properties when the user signs in.  
+A mobile app that showcases a catalogue of real estate properties when the user signs in.  
 Backend repo: https://github.com/YazeedEld/real-estate-mobile-app-api
 
 <p align="center">
